@@ -1,19 +1,13 @@
 package main;
 
+import dao.UserDAO;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class Main {
     public static void main(String[] args) {
-        try {
-            Connection con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/testdb",
-                    "root",
-                    "vksaaho123"
-            );
-            System.out.println("Connected!");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        UserDAO user = new UserDAO();
+        System.out.println(user.validateLogin("admin","admin123"));
     }
 }
